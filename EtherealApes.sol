@@ -15,7 +15,7 @@ contract EtherealApes is ERC721Enumerable, Ownable {
     bytes32 public              whitelistMerkleRoot;
     uint256 public              MAX_SUPPLY;
 
-    uint256 public constant     MAX_PER_TX          = 5;
+    uint256 public constant     MAX_PER_TX          = 6;
     uint256 public constant     RESERVES            = 440;
     uint256 public constant     priceInWei          = 0.08 ether;
 
