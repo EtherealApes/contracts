@@ -13,7 +13,7 @@ contract EtherealApes is ERC721Enumerable, Ownable {
     address public              withdrawalAddress;
 
     bytes32 public              whitelistMerkleRoot;
-    uint256 public              MAX_SUPPLY = 10000;
+    uint256 public              MAX_SUPPLY;
 
     uint256 public constant     MAX_PER_TX          = 5;
     uint256 public constant     RESERVES            = 440;
@@ -61,9 +61,11 @@ contract EtherealApes is ERC721Enumerable, Ownable {
         whitelistMerkleRoot = _whitelistMerkleRoot;
     }
 
-    function togglePublicSale() external onlyOwner {
+    function togglePublicSale(uint256 _MAX_SUPPLY) external onlyOwner {
         delete whitelistMerkleRoot;
+        MAX_SUPPLY = _MAX_SUPPLY;
     }
+
 
     function _leaf(string memory allowance, string memory payload) internal pure returns (bytes32) {
         return keccak256(abi.encodePacked(payload, allowance));
